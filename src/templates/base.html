@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Speed Minecraft - {% block header %}<!-- this should never get rendered -->{% endblock %}</title>
+	<meta name="generator" content="Studio 3 http://aptana.com/">
+	<meta name="author" content="Speed ACM">
+	<!-- Date: 2010-10-09 -->
+	<link rel="stylesheet" href="/static/base.css" type="text/css" media="screen" />
+	{% block script %}
+	{% endblock %}
+</head>
+<body>
+    <div id="content">
+        <div id="header">
+        
+        </div>
+        <table class="links">
+            <tr>
+                    <td width="17%"><a href="/">Home</a></td>
+                    <td width="16%"><a href="/login">Login</a></td>
+                    <td width="17%"><a href="/map">The Map</a></td>
+                    <td width="16%"><a href="/stats">Server Stats</a><td>
+                    <td width="17%"><a href="/credits">Credits</a></td>
+                    <td width="17%"><a href="/members">Members</a></td>
+            </tr>
+        </table>
+        {% if links %}
+        <table class="links">
+            <tr>
+                {% for href, name in links %}
+                    <td width="{% widthratio 1 3 100 %}%"><a href="{{ href }}">{{ name }}</a> </td>
+                {% endfor %}
+            </tr>
+        </table>
+        {% endif %}
+    {% block content%}
+    <!-- this should never be rendered -->
+    {% endblock %}
+    </div>
+</body>
+</html>
